@@ -5,6 +5,6 @@ mongoose.connect(process.env.MONGO_URI,{
 dbName:"backendapinew",
 
 })
-.then(()=>console.log("Data base Connected"))
+.then((c)=>console.log(`Data base Connected with ${c.connection.host}`))
 .catch((e)=>console.log(e));
-}
+}  
