@@ -21,7 +21,7 @@ config({
 //   methods :["GET","PUT","POST","DELETE"],
 //   credentials:true
 // }));
-const allowedOrigins = ['http://localhost:5173'];
+const allowedOrigins = [process.env.FRONTEND_URL];
 
 app.use(cors({
   origin: function (origin, callback) {
