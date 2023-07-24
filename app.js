@@ -16,24 +16,24 @@ config({
 
 
 
-// app.use(cors({
-//   origin:[process.env.FRONTEND_URL],
-//   methods :["GET","PUT","POST","DELETE"],
-//   credentials:true
-// }));
-const frontendURL = 'http://localhost:5173';
-
-
 app.use(cors({
-  origin: function (origin, callback) {
-    if (origin === "*") {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true // Enable sending cookies in the request (if needed)
+  origin:[process.env.FRONTEND_URL],
+  methods :["GET","PUT","POST","DELETE"],
+  credentials:true
 }));
+//const frontendURL = 'http://localhost:5173';
+
+
+// app.use(cors({
+//   origin: function (origin, callback) {
+//     if (origin === "*") {
+//       callback(null, true);
+//     } else {
+//       callback(new Error('Not allowed by CORS'));
+//     }
+//   },
+//   credentials: true // Enable sending cookies in the request (if needed)
+// }));
 app.use(express.json());
 
 app.use (cookieParser());
