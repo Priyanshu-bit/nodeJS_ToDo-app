@@ -25,14 +25,13 @@ const frontendURL = 'http://localhost:5173';
 
 
 app.use(cors({
-  origin: "*",
-  //  ||function (origin, callback) {
-  //   if (origin === frontendURL) {
-  //     callback(null, true);
-  //   } else {
-  //     callback(new Error('Not allowed by CORS'));
-  //   }
-  // },
+  origin: function (origin, callback) {
+    if (origin === frontendURL) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true // Enable sending cookies in the request (if needed)
 }));
 app.use(express.json());
@@ -42,6 +41,8 @@ app.use (cookieParser());
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/task", taskRouter);
 
-
+app.get("/", (req, res) => {
+  res.send("Nice working");
+});
 
 app.use(errorMiddleware)
