@@ -27,8 +27,8 @@ app.use(
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/task", taskRouter);
 
-app.get("/", (req, res) => {
-  res.cookie("testCookie", "This is a test cookie!", { maxAge: 900000, httpOnly: true });
+app.get("/new", (req, res) => {
+
   res.send("Nice working");
 });
 
