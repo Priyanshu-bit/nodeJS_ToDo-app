@@ -21,7 +21,8 @@ config({
 //   methods :["GET","PUT","POST","DELETE"],
 //   credentials:true
 // }));
-const frontendURL = process.env.FRONTEND_URL;
+const frontendURL = 'http://localhost:5173';
+
 
 app.use(cors({
   origin: function (origin, callback) {
@@ -40,9 +41,6 @@ app.use (cookieParser());
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/task", taskRouter);
 
-app.get("/", (req, res) => {
-  res.send("Nice working");
-});
 
 
 app.use(errorMiddleware)
