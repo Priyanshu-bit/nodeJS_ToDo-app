@@ -23,19 +23,12 @@ app.use(
   })
 );
 
-
+app.use(errorMiddleware);
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/task", taskRouter);
 
-app.get("/new", (req, res) => {
-
+app.get("/", (req, res) => {
   res.send("Nice working");
 });
 
-app.get("/set-test-cookie", (req, res) => {
-  res.cookie("testCookie", "This is a test cookie!", { maxAge: 900000, httpOnly: true });
-  res.send("Test cookie set successfully!");
-});
 
-
-app.use(errorMiddleware);
