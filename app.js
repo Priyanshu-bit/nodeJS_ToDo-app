@@ -25,7 +25,7 @@ const frontendURL = 'http://localhost:5173';
 
 
 app.use(cors({
-  origin: function (origin, callback) {
+  origin: "*" ||function (origin, callback) {
     if (origin === frontendURL) {
       callback(null, true);
     } else {
