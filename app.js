@@ -13,11 +13,11 @@ config({
 });
 app.use(express.json());
 app.use(cookieParser());
-let frontendURL = 'http://localhost:5173'; // Update this to your actual frontend URL
+
 
 app.use(
   cors({
-    origin: frontendURL,
+    origin: 'http://localhost:5173',
     methods: ["GET", "PUT", "POST", "DELETE"],
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization"] // Add any additional headers here
