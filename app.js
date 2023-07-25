@@ -29,6 +29,7 @@ app.use("/api/v1/users", userRouter);
 app.use("/api/v1/task", taskRouter);
 
 app.get("/", (req, res) => {
+  res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
   res.send("Nice working");
 });
 
