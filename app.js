@@ -16,11 +16,7 @@ app.use(cookieParser());
 let frontendURL = 'http://localhost:5173'; // Update this to your actual frontend URL
 
 app.use(
-  cors({
-    origin: frontendURL,
-    methods: ["GET", "PUT", "POST", "DELETE"],
-    credentials: true // Enable sending cookies in the request (if needed)
-  })
+  cors()
 );
 
 app.use(errorMiddleware);
